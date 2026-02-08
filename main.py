@@ -13,8 +13,7 @@ import sys
 from datetime import datetime
 from pathlib import Path
 
-from crewai import Crew, Process
-from langchain_ollama import OllamaLLM
+from crewai import Crew, Process, LLM
 
 from agents import (
     create_scraper_agent,
@@ -50,10 +49,10 @@ def create_llm():
     """Create and configure the Ollama LLM.
 
     Returns:
-        Configured OllamaLLM instance
+        Configured LLM instance for Ollama
     """
-    return OllamaLLM(
-        model="llama3",
+    return LLM(
+        model="ollama/llama3",
         base_url="http://localhost:11434",
         temperature=0.7,
     )
