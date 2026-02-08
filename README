@@ -1,0 +1,52 @@
+# AI News Aggregator
+
+Multi-agent system that collects, summarizes, and categorizes the latest AI news using CrewAI and local LLM (Ollama).
+
+## Features
+- **Web Scraper Agent**: Collects AI news from multiple sources
+- **Summarizer Agent**: Generates concise summaries using Ollama (Llama 3)
+- **Categorizer Agent**: Organizes news by topics (LLM, Computer Vision, NLP, etc.)
+- **Reporter Agent**: Creates daily AI news reports
+
+## Tech Stack
+- **Framework**: CrewAI
+- **LLM**: Ollama (Llama 3) - local deployment
+- **Language**: Python
+- **Tools**: BeautifulSoup4, Requests
+
+## Setup
+```bash
+# Clone repository
+git clone https://github.com/Yehos26/AI-News-Aggregator.git
+cd AI-News-Aggregator
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Ensure Ollama is running
+ollama run llama3
+
+# Run the aggregator
+python main.py
+```
+
+## Project Structure
+```
+├── agents/          # Agent definitions
+├── tasks/           # Task configurations
+├── tools/           # Custom tools (scrapers, parsers)
+├── outputs/         # Generated reports
+├── main.py          # Entry point
+└── requirements.txt
+```
+
+## Roadmap
+- [ ] Setup project structure
+- [ ] Implement scraper agent
+- [ ] Integrate Ollama for summarization
+- [ ] Add categorization logic
+- [ ] Generate daily reports
+- [ ] Add more news sources
+
+## Author
+**Yunus Emre Hoş**
