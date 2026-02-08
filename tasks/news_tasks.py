@@ -1,5 +1,6 @@
 """Task definitions for the AI News Aggregator."""
 
+from datetime import datetime
 from crewai import Task, Agent
 from tools.news_sources import NEWS_SOURCES, AI_CATEGORIES
 
@@ -157,9 +158,13 @@ def create_reporting_task(agent: Agent, context: list) -> Task:
     Returns:
         Configured reporting task
     """
+    current_date = datetime.now().strftime('%Y-%m-%d')
+
     return Task(
-        description="""Create a comprehensive daily AI news report based on the
+        description=f"""Create a comprehensive daily AI news report based on the
 categorized and summarized articles.
+
+IMPORTANT: Today's date is {current_date}. Use this date in the report.
 
 The report should include:
 1. Executive Summary - Key highlights of the day
@@ -173,9 +178,9 @@ Make the report:
 - Accessible to both technical and non-technical readers
 - Informative with actionable insights
 - Properly formatted with clear sections""",
-        expected_output="""
+        expected_output=f"""
 # AI NEWS DAILY REPORT
-Date: [Current Date]
+Date: {current_date}
 
 ## EXECUTIVE SUMMARY
 [2-3 paragraph overview of the day's most important AI developments]
